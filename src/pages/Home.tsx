@@ -1,7 +1,11 @@
+import Cords from '../components/Home/Cords';
+import CategorySearch from './../components/Home/CategorySearch';
+
 function Home() {
     return(
         <div>
-            <h1>Home</h1>
+            <CategorySearch />
+            <Cords />
         </div>
     );
 }

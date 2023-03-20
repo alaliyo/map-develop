@@ -1,0 +1,58 @@
+export const cardsDb = [
+    {
+        id: 0,
+        userId: 'a',
+        title: '제목1',
+        views: 6,
+        heartCount: 2,
+        postTime: "2023-03-15",
+    },
+    {
+        id: 1,
+        userId: 'ab',
+        title: '제목2',
+        views: 5,
+        heartCount: 2,
+        postTime: "2023-03-15",
+    },
+    {
+        id: 2,
+        userId: 'abc',
+        title: '제목3',
+        views: 4,
+        heartCount: 2,
+        postTime: "2023-03-16",
+    },
+    {
+        id: 3,
+        userId: 'abcd',
+        title: '제목4',
+        views: 3,
+        heartCount: 2,
+        postTime: "2023-03-17",
+    },
+    {
+        id: 4,
+        userId: 'b',
+        title: '제목5',
+        views: 2,
+        heartCount: 2,
+        postTime: "2023-03-18",
+    },
+    {
+        id: 5,
+        userId: 'bc',
+        title: '제목6',
+        views: 1,
+        heartCount: 2,
+        postTime: "2023-03-19",
+    },
+    {
+        id: 6,
+        userId: 'a',
+        title: '제목7',
+        views: 5,
+        heartCount: 2,
+        postTime: "2023-03-20",
+    }
+]
