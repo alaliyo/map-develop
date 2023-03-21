@@ -1,19 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
+import { authService } from './firebase';
 import Header from './components/Header';
 
 function Root() {
-  const [loginChack, setLoginChack] = useState(false);
-
-  const onclick = () => {
-    setLoginChack(!loginChack)
-  }
+  const [init, setInit] = useState(false);
+  const [userObj, setUserObj] = useState({});
+  const [loggedIn, setLoggedIn] = useState(false);
+    // 로그인 확인
+    useEffect(() => {
+      authService.onAuthStateChanged((user) => {
+        if (user) {
+          setUserObj(user);
+          setLoggedIn(true);
+        }
+        setInit(true);
+      })
+    }, []);
 
   return (
     <div>
-      <Header loginChack={loginChack}/>
-      <Outlet />
-      <button onClick={onclick}>{loginChack ? "로그아웃" : "로그인"}</button>
+      {init && (
+      <>
+        <Header loggedIn={loggedIn}/>
+        <Outlet context={{
+          loggedIn: loggedIn,
+          userObj: userObj,
+        }}/>
+      </>
+      )}
+
     </div>
   );
 }

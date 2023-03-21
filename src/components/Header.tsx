@@ -1,11 +1,19 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { authService } from '../firebase';
 
 type ChackProps = {
-    loginChack: boolean;
+    loggedIn: boolean;
 }
 
-function Header({loginChack}: ChackProps) {
+function Header({loggedIn}: ChackProps) {
+
+    // 로그아웃 기능
+    const onLogOutClick = () => {
+        authService.signOut();
+        alert("로그아웃 되었습니다.")
+        window.location.href="/"
+    }
 
     return (
         <LinksBox>
@@ -17,10 +25,10 @@ function Header({loginChack}: ChackProps) {
                 <Link to={'/community'}>커뮤니티</Link>
             </LinkBox>
             <LinkBox>
-                {loginChack ? (
+                {loggedIn ? (
                     <>
                         <Link to={'/mypage'}>MyPage</Link>
-                        <Link to={'/loginpage'}>Logout</Link>
+                        <Link to={'/'} onClick={onLogOutClick}>Logout</Link>
                     </>
                 ) : (
                     <Link to={'/loginpage'}>Login</Link>
@@ -51,7 +59,7 @@ const LinksBox = styled.header`
 
 const LinkBox = styled.div`
     display: flex;
-    a{
+    a {
         font-size: 20px;
         font-weight: 900;
         color: white;

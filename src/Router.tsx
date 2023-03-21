@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage';
 import MyPage from './pages/MyPage';
 import PlanPage from './pages/PlanPage';
 import Community from './pages/Community';
+import Detail from "./pages/Detail";
 
 const router = createBrowserRouter([
     {
@@ -17,19 +18,23 @@ const router = createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: '/loginpage',
+                path: 'detail/:postId',
+                element: <Detail />,
+            },
+            {
+                path: 'loginpage',
                 element: <LoginPage />,
             },
             {
-                path: '/mypage',
+                path: 'mypage',
                 element: <MyPage />,
             },
             {
-                path: '/planPage',
+                path: 'planPage',
                 element: <PlanPage />,
             },
             {
-                path: '/community',
+                path: 'community',
                 element: <Community />,
             },
         ],

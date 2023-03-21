@@ -4,8 +4,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Card } from 'react-bootstrap';
 import mapImg from '../../imgs/1000_F_315445649_00DrF55vABpPacVw63X6Cqq00UWNMWqD.jpg'
 import { cardsDb } from '../../db';
+import { Link } from 'react-router-dom';
 
-function Cords() {
+function Cards() {
     const [heartChang, setHeartChang] = useState(false);
 
     const heartClick = () => {
@@ -15,12 +16,14 @@ function Cords() {
     return(
         <CardsBox>
             {cardsDb.map(obj => (
-                <CardShadow>
-                <Card key={obj.id} style={{ width: '230px' }}>
+                <CardShadow key={obj.id}>
+                <Card style={{ width: '230px' }}>
                 <Card.Img variant="top" src={mapImg} />
                 <Card.Body>
                     <CardTextBox>
-                        <Card.Title>{obj.title}</Card.Title>
+                        <Card.Title>
+                            <Link to={`detail/${obj.id}`}>{obj.title}</Link> 
+                            </Card.Title>
                     </CardTextBox>
                     <TextBox>
                         <div>
@@ -42,7 +45,7 @@ function Cords() {
     );
 }
 
-export default Cords;
+export default Cards;
 
 const CardsBox = styled.div`
     width: 70%;
